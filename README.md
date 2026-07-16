@@ -1,6 +1,6 @@
-# 数据保护协议审核 · Legal Agent
+# 数据处理协议审核 · Legal Agent
 
-> 一个基于 AI 的《数据保护协议 / DPA》智能审阅助手，模拟资深合规合伙人的审阅流程，逐条识别合规风险、缺失条款与谈判要点，输出可直接呈交客户的审阅意见书。
+> 一个基于 AI 的《数据处理协议 / DPA》智能审阅助手，模拟资深合规合伙人的审阅流程，逐条识别合规风险、缺失条款与谈判要点，输出可直接呈交客户的审阅意见书。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Coze](https://img.shields.io/badge/Platform-Coze-blue)](https://www.coze.com)
@@ -28,7 +28,7 @@
 
 ## 项目简介
 
-本项目是一个专注于**数据保护协议（Data Protection Agreement, DPA）**审阅的 AI 法律智能体。它基于大语言模型能力，结合合规审阅方法论，为法务团队、合规人员和数据保护官（DPO）提供高效的协议初审工具。
+本项目是一个专注于**数据处理协议（Data Processing Agreement, DPA）**审阅的 AI 法律智能体。它基于大语言模型能力，结合合规审阅方法论，为法务团队、合规人员和数据保护官（DPO）提供高效的协议初审工具。
 
 **适用场景：**
 - 企业签署数据处理协议前的合规自查
@@ -162,7 +162,7 @@ https://682d4b19-0dd1-4841-9d0e-4e68a2178f14.dev.coze.site
 ### Coze Bot 配置
 
 ```
-Bot 名称：数据保护协议审核 · Legal Agent
+Bot 名称：数据处理协议审核 · Legal Agent
 Bot 描述：资深合规合伙人级别的 DPA 审阅助手
 模式：对话型
 人设与回复逻辑：见 prompt/system_prompt.md
@@ -174,7 +174,7 @@ Bot 描述：资深合规合伙人级别的 DPA 审阅助手
 ```
 将协议摊在这张胡桃木书桌上
 
-我会像一位资深合规合伙人那样，逐条批阅你的《数据保护协议 / DPA》。
+我会像一位资深合规合伙人那样，逐条批阅你的《数据处理协议 / DPA》。
 识别合规风险、缺失条款与谈判要点，最终出具一份可直接呈交客户的审阅意见书。
 
 台灯已亮，等待卷宗
