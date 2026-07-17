@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Coze](https://img.shields.io/badge/Platform-Coze-blue)](https://www.coze.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![在线演示](https://img.shields.io/badge/在线演示-dpareviewagent.coze.site-brightgreen)](https://dpareviewagent.coze.site)
 
 ---
 
@@ -107,13 +108,13 @@ Agent 采用 **"六维审阅法"**，对每一份 DPA 进行系统性扫描：
 
 ### 方式一：直接使用在线版本
 
-访问已部署的 Coze 应用：
+访问已正式发布的 Coze 应用（稳定部署版，可随时打开）：
 
 ```
-https://682d4b19-0dd1-4841-9d0e-4e68a2178f14.dev.coze.site
+https://dpareviewagent.coze.site
 ```
 
-> 注意：此为开发预览地址，正式发布请参考[部署指南](docs/deployment.md)。
+> 提示：正式发布版不带 `.dev.` 子域，长期稳定可用；如需自行部署，请参考[部署指南](docs/deployment.md)。
 
 ### 方式二：自行部署到 Coze
 
