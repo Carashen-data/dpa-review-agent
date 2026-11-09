@@ -1,216 +1,116 @@
 # 部署指南
 
-本指南介绍如何将"数据处理协议审核 · Legal Agent"部署到不同平台。
+本指南面向**本仓库的 Next.js 网页版审阅工作台**。仓库不再依赖任何平台侧的 Bot / 工作流配置，模型通过 OpenAI 兼容接口在服务端调用。
 
 ---
 
-## 一、部署到 Coze（推荐）
+## 前置条件
 
-### 1. 创建 Bot
-
-1. 访问 [Coze 平台](https://www.coze.com)，登录账号
-2. 点击「创建 Bot」
-3. 填写基本信息：
-   - **名称**：数据处理协议审核 · Legal Agent
-   - **描述**：资深合规合伙人级别的 DPA 审阅助手
-   - **Bot 功能介绍**：逐条审阅《数据处理协议 / DPA》，识别合规风险、缺失条款与谈判要点，输出审阅意见书
-4. 选择模式：**对话型**
-
-### 2. 配置人设与回复逻辑
-
-1. 进入 Bot 编辑页面
-2. 在「人设与回复逻辑」区域，粘贴 [`prompt/system_prompt.md`](../prompt/system_prompt.md) 的完整内容
-3. 配置开场白（见 README.md 中的开场白配置）
-
-### 3. 模型设置
-
-| 参数 | 推荐值 |
-|------|--------|
-| 模型 | GPT-4o 或 Claude 3.5 Sonnet |
-| 温度 | 0.3 |
-| 最大输出 | 8192 |
-| 上下文窗口 | 128K（如可选） |
-
-### 4. 知识库配置（可选）
-
-如需提升审阅精度，建议添加以下知识库：
-
-- GDPR 全文及官方指南
-- PIPL 全文及实施细则
-- 常用 SCC（标准合同条款）模板
-- 各国数据保护监管机构的指导文件
-
-### 5. 插件配置（可选）
-
-- **搜索插件**：用于查询最新法规动态
-- **文档解析插件**：用于直接上传 PDF/Word 格式的 DPA
-
-### 6. 发布
-
-1. 点击「发布」
-2. 选择发布渠道：
-   - **网站**：生成在线访问链接
-   - **API**：获取 API 接口，可集成到自有系统
-   - **Bot 商店**：上架 Coze 商店供其他用户使用
-3. 配置发布信息：
-   - 发布名称
-   - 发布描述
-   - 头像/封面图
+| 项目 | 要求 |
+| --- | --- |
+| Node.js | >= 20.9（推荐 22 LTS） |
+| 模型服务 | 任意支持 `POST /chat/completions` 且开启 `stream: true` 的 OpenAI 兼容服务 |
+| 密钥 | 服务端环境变量 `LLM_API_KEY`，不要写进代码或前端 |
 
 ---
 
-## 二、部署到 Dify
+## 一、本地开发
 
-### 1. 创建应用
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-1. 登录 [Dify](https://dify.ai)
-2. 创建新应用，选择「对话型」
-3. 在「系统提示词」中粘贴 `prompt/system_prompt.md` 的内容
-
-### 2. 模型配置
-
-- 选择模型：GPT-4o / Claude 3.5 Sonnet
-- Temperature: 0.3
-- Max Tokens: 8192
-
-### 3. 知识库
-
-- 上传法规文档到 Dify 知识库
-- 在应用设置中关联知识库
-
-### 4. 发布
-
-- 可发布为 Web 应用
-- 或通过 API 集成
+访问 <http://localhost:3000>。修改 `.env.local` 后需重启 dev server。
 
 ---
 
-## 三、部署到 FastGPT
+## 二、生产构建（自托管）
 
-### 1. 创建工作流
+```bash
+npm ci
+npm run build
+npm run start        # 默认监听 3000
+```
 
-1. 登录 FastGPT
-2. 创建新工作流
-3. 添加「AI 对话」节点
-4. 在系统提示词中粘贴 `prompt/system_prompt.md` 的内容
+可通过 `PORT=8080 npm run start` 修改端口，或用 systemd / PM2 / supervisor 托管进程。
 
-### 2. 配置输入变量
+建议前置 Nginx / Caddy 提供 HTTPS。`/api/audit` 使用 **SSE 流式响应**，反向代理必须关闭响应缓冲，否则前端会一直等到请求结束才收到内容：
 
-- `agreement_text`：协议正文（文本输入）
-- `dpa_type`：DPA 关系类型（下拉选择）
-- `applicable_laws`：适用法规（多选）
-- `user_role`：用户角色（下拉选择）
-
-### 3. 发布
-
-发布为 API 或 Web 应用。
-
----
-
-## 四、通过 OpenAI Assistants API 集成
-
-### Python 示例
-
-```python
-from openai import OpenAI
-
-client = OpenAI(api_key="your-api-key")
-
-# 读取系统提示词
-with open("prompt/system_prompt.md", "r", encoding="utf-8") as f:
-    instructions = f.read()
-
-# 创建 Assistant
-assistant = client.beta.assistants.create(
-    name="DPA Review Legal Agent",
-    instructions=instructions,
-    model="gpt-4o",
-    temperature=0.3,
-)
-
-# 创建对话线程
-thread = client.beta.threads.create()
-
-# 发送协议文本
-message = client.beta.threads.messages.create(
-    thread_id=thread.id,
-    role="user",
-    content="[在此粘贴 DPA 协议正文]",
-)
-
-# 运行 Assistant
-run = client.beta.threads.runs.create(
-    thread_id=thread.id,
-    assistant_id=assistant.id,
-)
-
-# 等待结果（简化示例，实际需轮询 run 状态）
-# ...
+```nginx
+location / {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_buffering off;          # 关键：SSE 必需
+    proxy_cache off;
+    proxy_read_timeout 180s;      # 长审阅需放宽超时
+}
 ```
 
 ---
 
-## 五、通过 LangChain 集成
+## 三、Docker
 
-```python
-from langchain_openai import ChatOpenAI
-from langchain.schema import SystemMessage, HumanMessage
+仓库根目录已提供 `Dockerfile`（Next.js standalone 输出）与 `.dockerignore`：
 
-# 读取系统提示词
-with open("prompt/system_prompt.md", "r", encoding="utf-8") as f:
-    system_prompt = f.read()
-
-# 初始化模型
-llm = ChatOpenAI(
-    model="gpt-4o",
-    temperature=0.3,
-    max_tokens=8192,
-)
-
-# 构建消息
-messages = [
-    SystemMessage(content=system_prompt),
-    HumanMessage(content="[在此粘贴 DPA 协议正文]"),
-]
-
-# 获取审阅结果
-response = llm.invoke(messages)
-print(response.content)
+```bash
+docker build -t dpa-review-agent .
+docker run --rm -p 3000:3000 \
+  -e LLM_API_KEY=你的密钥 \
+  -e LLM_BASE_URL=https://api.openai.com/v1 \
+  -e LLM_MODEL=gpt-4o-mini \
+  dpa-review-agent
 ```
+
+> 不要把密钥写进镜像或 `docker-compose.yml` 提交到仓库；通过运行时环境变量、Docker secrets 或编排平台的密钥管理注入。
 
 ---
 
-## 六、自托管 Web 应用
+## 四、Vercel / Serverless 平台
 
-如需自托管一个完整的 Web 界面，可参考以下技术栈：
-
-| 层 | 技术选型 |
-|----|---------|
-| 前端 | React / Next.js + Tailwind CSS |
-| 后端 | Python FastAPI / Node.js Express |
-| AI 接口 | OpenAI API / 本地部署的开源模型 |
-| 部署 | Docker + Nginx |
-
-最小化部署架构：
-
-```
-用户浏览器 → Nginx → FastAPI → LLM API
-                         ↓
-                    系统提示词加载
-```
+1. Fork / Import 本仓库，框架选择 Next.js，构建命令 `npm run build`。
+2. 在平台环境变量中配置 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL`。
+3. 注意平台对函数执行时长的限制：`src/app/api/audit/route.ts` 中声明了 `maxDuration = 120`（秒），若平台套餐上限更低，请在 `LLM_TIMEOUT_MS` 与前端提示中同步调整。
+4. 确认平台不会缓冲 SSE 响应（Vercel Functions 支持流式响应）。
 
 ---
 
-## 常见部署问题
+## 五、模型服务选择
 
-### Q: 输出被截断怎么办？
+| 场景 | `LLM_BASE_URL` 示例 |
+| --- | --- |
+| OpenAI | `https://api.openai.com/v1` |
+| DeepSeek | `https://api.deepseek.com/v1` |
+| 通义千问（兼容模式） | `https://dashscope.aliyuncs.com/compatible-mode/v1` |
+| 本地 Ollama | `http://localhost:11434/v1` |
 
-A: 增大模型的 `max_tokens` 参数（建议 8192+），或在工作流中分段输出后拼接。
+**数据合规提示**：协议正文会被发送到你配置的模型服务。处理真实合同前，请确认该服务的数据处理条款、数据出境路径与保留策略；对保密要求高的场景建议改用本地模型（Ollama / vLLM）并对文本脱敏。
 
-### Q: 协议太长，超出上下文窗口怎么办？
+---
 
-A: 1) 使用支持长上下文的模型（如 GPT-4o 128K）；2) 在提示词中指示 Agent 分段审阅；3) 使用 RAG 技术对协议进行检索。
+## 六、仅复用提示词到其他平台
 
-### Q: 如何提升审阅精度？
+`prompt/system_prompt.md` 是平台无关的审阅方法论，可单独粘贴到 Coze Bot、Dify、FastGPT 等对话型应用中作为 System Message：
 
-A: 1) 添加法规知识库；2) 使用更低温度（0.1-0.2）；3) 在提示词中增加更多示例；4) 使用思维链（CoT）提示。
+- 温度建议 `0.1 - 0.2`，最大输出 `8192+`
+- 建议补充法规知识库以提升条文引用准确度
+- 该用法**不使用本仓库的网页前端与 API**，属于独立部署方式
+
+---
+
+## 常见问题
+
+**Q：点击「开始核阅」提示未配置 `LLM_API_KEY`？**
+A：确认 `.env.local` 位于项目根目录、变量名无拼写错误，并重启服务。生产环境请在进程/平台的环境变量中配置。
+
+**Q：页面一直空白、没有逐字输出？**
+A：多为反向代理开启了 `proxy_buffering`，或模型服务未返回流式 `delta`。先直接访问 `http://<host>:3000` 排除代理因素，再检查 `LLM_BASE_URL` 是否指向兼容 `/chat/completions` 的地址。
+
+**Q：输出被截断？**
+A：换用最大输出更大的模型，或缩短协议正文；当前前端限制协议正文最多 60,000 字符。
+
+**Q：模型返回 401 / 404 / 模型名错误？**
+A：核对 `LLM_API_KEY`、`LLM_BASE_URL`（末尾不要重复 `/v1`）、`LLM_MODEL` 三者是否属于同一服务商，错误信息会在审阅窗内以 `event: error` 展示。

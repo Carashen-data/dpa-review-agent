@@ -27,16 +27,18 @@
 - 增加 Edge Case 的处理逻辑
 - 提升多语言支持
 
-提交 PR 时请说明修改理由和测试结果。
+**注意**：服务端实际加载的是 `src/lib/system-prompt.ts` 中的 `SYSTEM_PROMPT` 常量。修改提示词时请**同步更新这两个文件**，否则线上审阅行为不会变化。提交 PR 时请说明修改理由和测试结果。
+
+如需调整前端可选法规、管控点或预设组合，请修改 `src/data/config.json`；接口实现位于 `src/app/api/`。
 
 ### 3. 新增法规支持
 
 如需添加新的法规框架：
 
-1. 在 `prompt/system_prompt.md` 的法规矩阵中添加条目
-2. 在 README.md 的适用法规矩阵表格中添加
-3. 在系统提示词的合规检查清单中添加该法规的必备条款
-4. 提供 1-2 个测试用例
+1. 在 `src/data/config.json` 对应的法规矩阵中添加条目（前端选项来自该文件）
+2. 在 `prompt/system_prompt.md` 与 `src/lib/system-prompt.ts` 的审阅规则中同步补充
+3. 在 README.md 的项目说明中酌情更新
+4. 提供 1-2 个脱敏测试用例
 
 ### 4. 分享使用经验
 
@@ -73,7 +75,7 @@
 ```
 feat(prompt): 增加 HIPAA 法规审阅支持
 fix(disclaimer): 修正免责声明中的管辖权描述
-docs(readme): 补充 FastGPT 部署说明
+docs(readme): 补充自托管部署说明
 ```
 
 ### 审阅流程

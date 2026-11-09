@@ -1,0 +1,1461 @@
+{
+  "jurisdictions": [
+    {
+      "code": "CN",
+      "label": "中国",
+      "hint": "PIPL / CSL / DSL / 国标"
+    },
+    {
+      "code": "GDPR",
+      "label": "欧盟",
+      "hint": "GDPR / EU AI Act / EDPB"
+    },
+    {
+      "code": "CCPA",
+      "label": "美国",
+      "hint": "CCPA / CPRA / HIPAA / EO 14117"
+    }
+  ],
+  "relations": [
+    {
+      "code": "controller_processor",
+      "label": "Controller-Processor",
+      "ref": "PIPL §21 / GDPR Art. 28",
+      "hint": "委托处理，处理者受控制者指令"
+    },
+    {
+      "code": "controller_controller",
+      "label": "Controller-Controller",
+      "ref": "PIPL §23 / GDPR Art. 6, 26",
+      "hint": "独立控制者之间的数据提供 / 共享"
+    },
+    {
+      "code": "joint_controller",
+      "label": "Joint Controller",
+      "ref": "PIPL §20 / GDPR Art. 26",
+      "hint": "共同决定处理目的与方式，连带责任"
+    },
+    {
+      "code": "sub_processor",
+      "label": "Sub-processor",
+      "ref": "PIPL §21(3) / GDPR Art. 28(2)(4)",
+      "hint": "处理者向次级处理者的再委托"
+    },
+    {
+      "code": "cross_border",
+      "label": "Cross-border Transfer",
+      "ref": "PIPL §38–40 · 出境三办法",
+      "hint": "数据出境 / 境外接收方"
+    }
+  ],
+  "cnFrameworks": [
+    {
+      "code": "PIPL",
+      "short": "个保法",
+      "full": "个人信息保护法",
+      "year": "2021.11.1",
+      "category": "core",
+      "hint": "PIPIA · 权利响应 · 跨境 · 单独同意",
+      "citedBy": "CAC · MPS · 法院"
+    },
+    {
+      "code": "CSL",
+      "short": "网安法",
+      "full": "网络安全法",
+      "year": "2017.6.1",
+      "category": "core",
+      "hint": "等保 · CIIO · 本地化",
+      "citedBy": "CAC · MPS"
+    },
+    {
+      "code": "DSL",
+      "short": "数安法",
+      "full": "数据安全法",
+      "year": "2021.9.1",
+      "category": "core",
+      "hint": "分类分级 · 重要数据",
+      "citedBy": "CAC · MIIT · MPS"
+    },
+    {
+      "code": "PIPL_IMPL",
+      "short": "网数条例",
+      "full": "网络数据安全管理条例 + 个保配套细则",
+      "year": "2025.1.1",
+      "category": "regulation",
+      "hint": "监管落地主抓手",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "CROSS_BORDER",
+      "short": "跨境三法",
+      "full": "出境评估办法 + SCC + 认证 + 跨境流动规定",
+      "year": "2022–2024",
+      "category": "regulation",
+      "hint": "安全评估 / SCC / 认证",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GENAI",
+      "short": "生成式 AI 三规",
+      "full": "生成式 AI + 深度合成 + 算法推荐",
+      "year": "2022–2023",
+      "category": "regulation",
+      "hint": "训练语料 · 内容标识 · 备案",
+      "citedBy": "CAC · MIIT"
+    },
+    {
+      "code": "SENSITIVE_PI",
+      "short": "敏感 PI",
+      "full": "敏感个人信息 / 未成年人 / 生物识别专项",
+      "year": "—",
+      "category": "regulation",
+      "hint": "单独同意 · 监护人同意",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "MLPS",
+      "short": "等保 2.0",
+      "full": "GB/T 22239-2019 等级保护基本要求",
+      "year": "2019",
+      "category": "gb",
+      "group": "foundation",
+      "hint": "定级 · 备案 · 测评",
+      "citedBy": "MPS · CAC"
+    },
+    {
+      "code": "GB_22240",
+      "short": "GB 22240",
+      "full": "GB/T 22240-2020 等级保护定级指南",
+      "year": "2020",
+      "category": "gb",
+      "group": "foundation",
+      "hint": "等保定级方法与要素",
+      "citedBy": "MPS"
+    },
+    {
+      "code": "GB_20984",
+      "short": "GB 20984",
+      "full": "GB/T 20984-2022 信息安全风险评估方法",
+      "year": "2022",
+      "category": "gb",
+      "group": "foundation",
+      "hint": "风险识别 · 分析 · 评价",
+      "citedBy": "MPS · CAC"
+    },
+    {
+      "code": "GB_35273",
+      "short": "GB 35273",
+      "full": "GB/T 35273-2020 个人信息安全规范",
+      "year": "2020",
+      "category": "gb",
+      "group": "pi",
+      "hint": "国标基线（最高频引用）",
+      "citedBy": "CAC · 法院 · 集体诉讼"
+    },
+    {
+      "code": "GB_39335",
+      "short": "GB 39335",
+      "full": "GB/T 39335-2020 PIA 影响评估指南",
+      "year": "2020",
+      "category": "gb",
+      "group": "pi",
+      "hint": "PIPIA 方法论",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_42574",
+      "short": "GB 42574",
+      "full": "GB/T 42574-2023 告知与同意实施指南",
+      "year": "2023",
+      "category": "gb",
+      "group": "pi",
+      "hint": "告知内容 · 同意方式",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_41391",
+      "short": "GB 41391",
+      "full": "GB/T 41391-2022 App 收集个人信息基本要求",
+      "year": "2022",
+      "category": "gb",
+      "group": "pi",
+      "hint": "App 治理必引",
+      "citedBy": "MIIT · CAC"
+    },
+    {
+      "code": "GB_45574",
+      "short": "GB 45574",
+      "full": "GB/T 45574-2025 敏感个人信息处理安全要求",
+      "year": "2025",
+      "category": "gb",
+      "group": "pi",
+      "hint": "2025 新标 · 8 类敏感 PI",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_37964",
+      "short": "GB 37964",
+      "full": "GB/T 37964-2019 个人信息去标识化指南",
+      "year": "2019",
+      "category": "gb",
+      "group": "pi",
+      "hint": "假名化 · 泛化 · 差分隐私",
+      "citedBy": "CAC · TC260"
+    },
+    {
+      "code": "GB_42460",
+      "short": "GB 42460",
+      "full": "GB/T 42460-2023 去标识化效果分级评估",
+      "year": "2023",
+      "category": "gb",
+      "group": "pi",
+      "hint": "匿名化举证依据",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_41819",
+      "short": "GB 41819",
+      "full": "GB/T 41819-2022 人脸识别数据安全要求",
+      "year": "2022",
+      "category": "gb",
+      "group": "pi",
+      "hint": "生物识别专项",
+      "citedBy": "CAC · MPS"
+    },
+    {
+      "code": "GB_43697",
+      "short": "GB 43697",
+      "full": "GB/T 43697-2024 数据分类分级规则",
+      "year": "2024",
+      "category": "gb",
+      "group": "data",
+      "hint": "一般 / 重要 / 核心",
+      "citedBy": "CAC · 各行业主管部门"
+    },
+    {
+      "code": "GB_45092",
+      "short": "GB 45092",
+      "full": "GB/T 45092-2024 网络数据处理安全要求",
+      "year": "2024",
+      "category": "gb",
+      "group": "data",
+      "hint": "网数条例技术落地",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_37988",
+      "short": "GB 37988",
+      "full": "GB/T 37988-2019 数据安全能力成熟度模型 DSMM",
+      "year": "2019",
+      "category": "gb",
+      "group": "data",
+      "hint": "组织级安全能力 1–5 级",
+      "citedBy": "CAC · TC260"
+    },
+    {
+      "code": "GB_45640",
+      "short": "GB 45640",
+      "full": "GB/T 45640-2025 数据脱敏要求",
+      "year": "2025",
+      "category": "gb",
+      "group": "data",
+      "hint": "2025 新标 · 测试/日志脱敏",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_45654",
+      "short": "GB 45654",
+      "full": "GB/T 45654-2025 数据安全管理体系要求",
+      "year": "2025",
+      "category": "gb",
+      "group": "data",
+      "hint": "2025 新标 · 组织级数据安全治理体系 · DSMM 配套",
+      "citedBy": "CAC · TC260"
+    },
+    {
+      "code": "GB_39725",
+      "short": "GB 39725",
+      "full": "GB/T 39725-2020 健康医疗数据安全指南",
+      "year": "2020",
+      "category": "gb",
+      "group": "sector",
+      "hint": "医疗 · 保险 · 健康",
+      "citedBy": "NHC · CAC"
+    },
+    {
+      "code": "GB_41871",
+      "short": "GB 41871",
+      "full": "GB/T 41871-2022 汽车数据处理安全要求",
+      "year": "2022",
+      "category": "gb",
+      "group": "sector",
+      "hint": "车企 · 车联网 · 智驾",
+      "citedBy": "CAC · MIIT · MPS"
+    },
+    {
+      "code": "TC260_005",
+      "short": "TC260-005",
+      "full": "网络数据分类分级要求",
+      "year": "2023",
+      "category": "practice",
+      "hint": "DSL §21 操作手册",
+      "citedBy": "CAC · TC260"
+    },
+    {
+      "code": "TC260_006",
+      "short": "TC260-006",
+      "full": "数据出境安全评估申报指南",
+      "year": "2022",
+      "category": "practice",
+      "hint": "跨境申报流程与材料",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "MINOR_ONLINE",
+      "short": "未保网保条例",
+      "full": "未成年人网络保护条例",
+      "year": "2024",
+      "category": "minor",
+      "hint": "2024.1.1 施行 · 网信办主管 · 未成年人个人信息保护 / 网络欺凌 / 网络沉迷防治",
+      "citedBy": "CAC · MPS"
+    },
+    {
+      "code": "CHILDREN_PI_SPEC",
+      "short": "儿童 PI 规定",
+      "full": "儿童个人信息网络保护规定",
+      "year": "2019",
+      "category": "minor",
+      "hint": "14 周岁以下 · 监护人同意 · 最小必要 · 专门规则",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "GB_43701",
+      "short": "儿童 PI 保护指南",
+      "full": "GB/T 43701-2023 儿童个人信息网络保护实施指南",
+      "year": "2023",
+      "category": "minor",
+      "hint": "TC260 · 儿童 PI 收集 / 监护人同意 / 专门规则",
+      "citedBy": "CAC"
+    },
+    {
+      "code": "FRAM",
+      "short": "人脸识别办法",
+      "full": "人脸识别技术应用安全管理办法",
+      "year": "2025",
+      "category": "biometric",
+      "hint": "2025.9.1 施行 · 网信办等联合发布 · 非强制同意路径 / 存储加密 / 境内存储 / 数量报告",
+      "citedBy": "CAC"
+    }
+  ],
+  "cnPresets": [
+    {
+      "code": "core",
+      "label": "核心组合",
+      "hint": "三法 + 最高频国标",
+      "frameworks": [
+        "PIPL",
+        "CSL",
+        "DSL",
+        "GB_35273",
+        "GB_39335",
+        "GB_43697"
+      ]
+    },
+    {
+      "code": "cross_border",
+      "label": "跨境场景",
+      "hint": "含出境三法与去标识化",
+      "frameworks": [
+        "PIPL",
+        "DSL",
+        "CROSS_BORDER",
+        "GB_43697",
+        "GB_37964",
+        "GB_42460",
+        "TC260_005",
+        "TC260_006"
+      ]
+    },
+    {
+      "code": "app",
+      "label": "App / 移动端",
+      "hint": "App 治理专用",
+      "frameworks": [
+        "PIPL",
+        "GB_35273",
+        "GB_41391",
+        "GB_42574",
+        "SENSITIVE_PI"
+      ]
+    },
+    {
+      "code": "genai",
+      "label": "生成式 AI",
+      "hint": "训练数据 / 内容标识",
+      "frameworks": [
+        "PIPL",
+        "DSL",
+        "GENAI",
+        "GB_35273",
+        "GB_43697",
+        "TC260_005"
+      ]
+    },
+    {
+      "code": "sensitive",
+      "label": "敏感 PI / 生物识别",
+      "hint": "含 GB 45574 · GB 41819",
+      "frameworks": [
+        "PIPL",
+        "SENSITIVE_PI",
+        "GB_35273",
+        "GB_45574",
+        "GB_41819"
+      ]
+    },
+    {
+      "code": "vehicle",
+      "label": "汽车 / 车联网",
+      "hint": "含 GB 41871",
+      "frameworks": [
+        "PIPL",
+        "DSL",
+        "GB_41871",
+        "GB_43697",
+        "GB_45092"
+      ]
+    },
+    {
+      "code": "healthcare",
+      "label": "医疗健康",
+      "hint": "含 GB 39725",
+      "frameworks": [
+        "PIPL",
+        "SENSITIVE_PI",
+        "GB_35273",
+        "GB_39725",
+        "GB_45574"
+      ]
+    },
+    {
+      "code": "minor",
+      "label": "未成年人保护",
+      "hint": "含《未成年人网络保护条例》· GB/T 43701",
+      "frameworks": [
+        "PIPL",
+        "SENSITIVE_PI",
+        "MINOR_ONLINE",
+        "GB_35273",
+        "GB_43701",
+        "GB_45574"
+      ]
+    },
+    {
+      "code": "biometric",
+      "label": "生物识别信息",
+      "hint": "含《人脸识别安全管理办法》· GB/T 41819 · GB/T 45574",
+      "frameworks": [
+        "PIPL",
+        "SENSITIVE_PI",
+        "FRAM",
+        "GB_41819",
+        "GB_45574"
+      ]
+    }
+  ],
+  "euFrameworks": [
+    {
+      "code": "GDPR",
+      "short": "GDPR",
+      "full": "General Data Protection Regulation (EU) 2016/679",
+      "year": "2016",
+      "category": "core",
+      "hint": "欧盟通用数据保护条例，所有 DPA 的第一性法源",
+      "citedBy": "EDPB / DPA / CJEU"
+    },
+    {
+      "code": "EPRIVACY",
+      "short": "ePrivacy",
+      "full": "ePrivacy Directive 2002/58/EC (as amended)",
+      "year": "2002",
+      "category": "core",
+      "hint": "电子通信隐私、Cookie 同意、直销营销的专门规则",
+      "citedBy": "DPA"
+    },
+    {
+      "code": "LED",
+      "short": "LED",
+      "full": "Law Enforcement Directive (EU) 2016/680",
+      "year": "2016",
+      "category": "core",
+      "hint": "执法机关处理个人数据专门指令，仅刑事司法领域适用",
+      "citedBy": "国家 DPA"
+    },
+    {
+      "code": "AI_ACT",
+      "short": "EU AI Act",
+      "full": "Artificial Intelligence Act (EU) 2024/1689",
+      "year": "2024",
+      "category": "act",
+      "hint": "全球首部综合性 AI 立法，按风险等级分级监管；高风险 AI 系统与通用目的 AI 模型（GPAI）合规义务",
+      "citedBy": "AI Office / EDPB"
+    },
+    {
+      "code": "DATA_ACT",
+      "short": "Data Act",
+      "full": "Data Act (EU) 2023/2854",
+      "year": "2023",
+      "category": "act",
+      "hint": "IoT 数据访问与共享、云间切换、B2B 数据合同禁止不公平条款",
+      "citedBy": "European Commission"
+    },
+    {
+      "code": "DGA",
+      "short": "DGA",
+      "full": "Data Governance Act (EU) 2022/868",
+      "year": "2022",
+      "category": "act",
+      "hint": "数据中介、数据利他主义、公共部门数据再利用的治理框架",
+      "citedBy": "European Data Innovation Board"
+    },
+    {
+      "code": "DSA",
+      "short": "DSA",
+      "full": "Digital Services Act (EU) 2022/2065",
+      "year": "2022",
+      "category": "act",
+      "hint": "在线平台内容治理、超大型平台（VLOP）合规义务、广告透明度",
+      "citedBy": "European Commission"
+    },
+    {
+      "code": "DMA",
+      "short": "DMA",
+      "full": "Digital Markets Act (EU) 2022/1925",
+      "year": "2022",
+      "category": "act",
+      "hint": "守门人平台的数据组合与互操作性义务",
+      "citedBy": "European Commission"
+    },
+    {
+      "code": "NIS2",
+      "short": "NIS 2",
+      "full": "NIS 2 Directive (EU) 2022/2555",
+      "year": "2022",
+      "category": "act",
+      "hint": "关键与重要实体的网络安全义务、事件报告 24h/72h",
+      "citedBy": "ENISA / 国家 CSIRT"
+    },
+    {
+      "code": "DORA",
+      "short": "DORA",
+      "full": "Digital Operational Resilience Act (EU) 2022/2554",
+      "year": "2022",
+      "category": "act",
+      "hint": "金融机构 ICT 风险管理、第三方外包（含 ICT 服务提供者）强制条款",
+      "citedBy": "ESA (EBA/EIOPA/ESMA)"
+    },
+    {
+      "code": "CRA",
+      "short": "CRA",
+      "full": "Cyber Resilience Act (EU) 2024/2847",
+      "year": "2024",
+      "category": "act",
+      "hint": "带数字元素产品的网络安全义务，涉及产品供应链数据",
+      "citedBy": "ENISA"
+    },
+    {
+      "code": "EDPB_07_2020",
+      "short": "EDPB 07/2020",
+      "full": "Guidelines 07/2020 on the concepts of controller and processor",
+      "year": "2021",
+      "category": "guideline",
+      "hint": "Controller / Processor / Joint Controller 概念定性权威指引（DPA 定性首要参考）",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "EDPB_05_2021",
+      "short": "EDPB 05/2021",
+      "full": "Guidelines 05/2021 on the interplay between Article 3 and Chapter V",
+      "year": "2023",
+      "category": "guideline",
+      "hint": "域外适用与跨境传输规则的衔接，判定是否需要 SCC 的关键指引",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "EDPB_R_01_2020",
+      "short": "EDPB R 01/2020",
+      "full": "Recommendations 01/2020 on supplementary measures (post-Schrems II)",
+      "year": "2021",
+      "category": "guideline",
+      "hint": "Schrems II 后 SCC 的补充措施建议（TIA 六步法）",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "EDPB_02_2023",
+      "short": "EDPB 02/2023",
+      "full": "Guidelines 02/2023 on Article 6(1)(f) legitimate interests",
+      "year": "2024",
+      "category": "guideline",
+      "hint": "合法利益法律基础的三步测试与平衡测试",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "EDPB_04_2019",
+      "short": "EDPB 04/2019",
+      "full": "Guidelines 04/2019 on Article 25 Data Protection by Design and by Default",
+      "year": "2020",
+      "category": "guideline",
+      "hint": "隐私工程与默认最小化，DPA 中 Art. 32 技术措施的落地基准",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "EDPB_09_2022",
+      "short": "EDPB 09/2022",
+      "full": "Guidelines 9/2022 on personal data breach notification under GDPR",
+      "year": "2023",
+      "category": "guideline",
+      "hint": "72 小时通报义务的判定与内容要求（含处理者向控制者的通知链）",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "EDPB_01_2024_PAY",
+      "short": "EDPB 01/2024",
+      "full": "Guidelines 1/2024 on Consent or Pay models",
+      "year": "2024",
+      "category": "guideline",
+      "hint": "\"付费换隐私\"模式与自由同意的兼容性判定",
+      "citedBy": "EDPB"
+    },
+    {
+      "code": "SCC_2021",
+      "short": "SCC 2021",
+      "full": "Standard Contractual Clauses – Commission Decision (EU) 2021/914",
+      "year": "2021",
+      "category": "transfer",
+      "hint": "四模块 SCC（C2C / C2P / P2P / P2C），跨境合规的主流工具",
+      "citedBy": "European Commission"
+    },
+    {
+      "code": "ADEQUACY",
+      "short": "Adequacy",
+      "full": "Adequacy Decisions (含 EU–US DPF)",
+      "year": "2023",
+      "category": "transfer",
+      "hint": "受充分性决定覆盖的国家/框架（如 EU-US Data Privacy Framework）可免 SCC",
+      "citedBy": "European Commission"
+    },
+    {
+      "code": "BCR",
+      "short": "BCR",
+      "full": "Binding Corporate Rules (Art. 47 GDPR)",
+      "year": "2018",
+      "category": "transfer",
+      "hint": "跨国集团内跨境传输的约束性公司规则",
+      "citedBy": "EDPB / 主导 DPA"
+    },
+    {
+      "code": "MDR",
+      "short": "MDR/IVDR",
+      "full": "Medical Devices Regulation (EU) 2017/745 & IVDR 2017/746",
+      "year": "2017",
+      "category": "sector",
+      "hint": "医疗器械（含软件 SaMD）监管，与健康数据保护联动",
+      "citedBy": "Notified Body"
+    },
+    {
+      "code": "PSD2",
+      "short": "PSD2",
+      "full": "Payment Services Directive (EU) 2015/2366",
+      "year": "2015",
+      "category": "sector",
+      "hint": "支付账户信息与开放银行 API 中的强客户认证",
+      "citedBy": "EBA"
+    }
+  ],
+  "euPresets": [
+    {
+      "code": "eu.baseline",
+      "label": "GDPR + EDPB 基线",
+      "hint": "GDPR + 概念/传输/合法利益关键 EDPB 指引",
+      "frameworks": [
+        "GDPR",
+        "EDPB_07_2020",
+        "EDPB_05_2021",
+        "EDPB_R_01_2020",
+        "EDPB_02_2023"
+      ]
+    },
+    {
+      "code": "eu.transfer",
+      "label": "跨境传输专项",
+      "hint": "SCC + Adequacy + BCR + Schrems II 补充措施",
+      "frameworks": [
+        "GDPR",
+        "SCC_2021",
+        "ADEQUACY",
+        "BCR",
+        "EDPB_05_2021",
+        "EDPB_R_01_2020"
+      ]
+    },
+    {
+      "code": "eu.ai",
+      "label": "AI 应用专项",
+      "hint": "GDPR + EU AI Act + Data Act + DPbD",
+      "frameworks": [
+        "GDPR",
+        "AI_ACT",
+        "DATA_ACT",
+        "EDPB_04_2019"
+      ]
+    },
+    {
+      "code": "eu.breach",
+      "label": "泄露与安全事件",
+      "hint": "GDPR 泄露通报 + NIS 2 + DORA",
+      "frameworks": [
+        "GDPR",
+        "EDPB_09_2022",
+        "NIS2",
+        "DORA"
+      ]
+    },
+    {
+      "code": "eu.platform",
+      "label": "平台与服务专项",
+      "hint": "GDPR + DSA + DMA + ePrivacy",
+      "frameworks": [
+        "GDPR",
+        "DSA",
+        "DMA",
+        "EPRIVACY"
+      ]
+    }
+  ],
+  "usFrameworks": [
+    {
+      "code": "HIPAA",
+      "short": "HIPAA",
+      "full": "Health Insurance Portability and Accountability Act (Privacy & Security Rules)",
+      "year": "1996/2013",
+      "category": "federal",
+      "hint": "受保护健康信息（PHI）；Covered Entity 与 Business Associate 关系 = HIPAA 版 DPA（BAA）",
+      "citedBy": "HHS OCR"
+    },
+    {
+      "code": "HITECH",
+      "short": "HITECH",
+      "full": "Health Information Technology for Economic and Clinical Health Act",
+      "year": "2009",
+      "category": "federal",
+      "hint": "PHI 泄露通报义务（Breach Notification Rule），BA 直接受 HIPAA 约束",
+      "citedBy": "HHS OCR"
+    },
+    {
+      "code": "GLBA",
+      "short": "GLBA",
+      "full": "Gramm-Leach-Bliley Act (Safeguards Rule 2023)",
+      "year": "1999/2023",
+      "category": "federal",
+      "hint": "金融机构对非公开个人信息（NPI）的安全保障与服务提供者尽职义务",
+      "citedBy": "FTC / OCC"
+    },
+    {
+      "code": "COPPA",
+      "short": "COPPA",
+      "full": "Children's Online Privacy Protection Act (Rule 2013, 2025 amendments)",
+      "year": "1998/2025",
+      "category": "federal",
+      "hint": "面向 <13 岁儿童在线信息，Verifiable Parental Consent 与运营者/第三方分工",
+      "citedBy": "FTC"
+    },
+    {
+      "code": "FERPA",
+      "short": "FERPA",
+      "full": "Family Educational Rights and Privacy Act",
+      "year": "1974",
+      "category": "federal",
+      "hint": "教育机构学生教育记录的隐私保护，School Official 例外与第三方合同",
+      "citedBy": "US DoE"
+    },
+    {
+      "code": "VPPA",
+      "short": "VPPA",
+      "full": "Video Privacy Protection Act",
+      "year": "1988",
+      "category": "federal",
+      "hint": "视频观看记录的知情同意，近年在流媒体/像素追踪案件中频发诉讼",
+      "citedBy": "Federal Courts"
+    },
+    {
+      "code": "CAN_SPAM",
+      "short": "CAN-SPAM",
+      "full": "Controlling the Assault of Non-Solicited Pornography and Marketing Act",
+      "year": "2003",
+      "category": "federal",
+      "hint": "商业电子邮件的发送人身份、opt-out、主题栏真实性要求",
+      "citedBy": "FTC"
+    },
+    {
+      "code": "TCPA",
+      "short": "TCPA",
+      "full": "Telephone Consumer Protection Act",
+      "year": "1991",
+      "category": "federal",
+      "hint": "电话营销、短信、预录音的事前同意，DNC 名单义务",
+      "citedBy": "FCC"
+    },
+    {
+      "code": "FISMA",
+      "short": "FISMA",
+      "full": "Federal Information Security Modernization Act",
+      "year": "2014",
+      "category": "federal",
+      "hint": "联邦机构信息系统安全（NIST SP 800-53 落地基线），承包商合规",
+      "citedBy": "NIST / OMB"
+    },
+    {
+      "code": "GRAMM_ML",
+      "short": "AML/BSA",
+      "full": "Bank Secrecy Act + Anti-Money Laundering",
+      "year": "1970/2020",
+      "category": "federal",
+      "hint": "反洗钱记录保留与客户身份识别（KYC），影响金融 DPA 数据保存期",
+      "citedBy": "FinCEN"
+    },
+    {
+      "code": "EO_14117",
+      "short": "EO 14117",
+      "full": "Executive Order 14117 – Preventing Access to Americans' Bulk Sensitive Personal Data by Countries of Concern",
+      "year": "2024",
+      "category": "executive",
+      "hint": "限制受关注国家（含中国）通过合同/雇佣/投资等渠道批量获取美国人敏感数据；DOJ 实施规则 2025",
+      "citedBy": "US DOJ / CISA"
+    },
+    {
+      "code": "CLOUD_ACT",
+      "short": "CLOUD Act",
+      "full": "Clarifying Lawful Overseas Use of Data Act",
+      "year": "2018",
+      "category": "executive",
+      "hint": "美国政府对美方受控主体境外存储数据的调取权，与 GDPR Art. 48 冲突",
+      "citedBy": "US DOJ"
+    },
+    {
+      "code": "FISA_702",
+      "short": "FISA 702",
+      "full": "Foreign Intelligence Surveillance Act §702 (2024 renewal)",
+      "year": "1978/2024",
+      "category": "executive",
+      "hint": "情报机构对非美国人数据的境外监听依据；Schrems II 焦点",
+      "citedBy": "US DoJ / DNI"
+    },
+    {
+      "code": "EAR",
+      "short": "EAR",
+      "full": "Export Administration Regulations (15 CFR §§730–774)",
+      "year": "1979/2024",
+      "category": "executive",
+      "hint": "技术、软件、加密算法出口管制，影响跨境技术数据流",
+      "citedBy": "BIS"
+    },
+    {
+      "code": "CCPA_CPRA",
+      "short": "CCPA/CPRA",
+      "full": "California Consumer Privacy Act (as amended by CPRA)",
+      "year": "2018/2023",
+      "category": "state-comprehensive",
+      "hint": "首个州级综合隐私法，含 Service Provider / Contractor / Third Party 合同条款要求",
+      "citedBy": "CPPA"
+    },
+    {
+      "code": "VCDPA",
+      "short": "VCDPA",
+      "full": "Virginia Consumer Data Protection Act",
+      "year": "2023",
+      "category": "state-comprehensive",
+      "hint": "第二个综合法，明确 Controller / Processor 合同要素 §59.1-579",
+      "citedBy": "VA AG"
+    },
+    {
+      "code": "CPA",
+      "short": "CPA",
+      "full": "Colorado Privacy Act",
+      "year": "2023",
+      "category": "state-comprehensive",
+      "hint": "Universal Opt-Out Mechanism 与敏感数据同意",
+      "citedBy": "CO AG"
+    },
+    {
+      "code": "CTDPA",
+      "short": "CTDPA",
+      "full": "Connecticut Data Privacy Act",
+      "year": "2023",
+      "category": "state-comprehensive",
+      "hint": "偏 VCDPA 模板，含 Assessment 与合同要素",
+      "citedBy": "CT AG"
+    },
+    {
+      "code": "UCPA",
+      "short": "UCPA",
+      "full": "Utah Consumer Privacy Act",
+      "year": "2023",
+      "category": "state-comprehensive",
+      "hint": "州级综合法中最宽松版本，opt-out 为主",
+      "citedBy": "UT DCP"
+    },
+    {
+      "code": "TDPSA",
+      "short": "TDPSA",
+      "full": "Texas Data Privacy and Security Act",
+      "year": "2024",
+      "category": "state-comprehensive",
+      "hint": "德州综合隐私法，含 SDK/Ad Tech 明示披露",
+      "citedBy": "TX AG"
+    },
+    {
+      "code": "OCPA",
+      "short": "OCPA",
+      "full": "Oregon Consumer Privacy Act",
+      "year": "2024",
+      "category": "state-comprehensive",
+      "hint": "俄勒冈综合法，含明确的 Processor 合同条款",
+      "citedBy": "OR AG"
+    },
+    {
+      "code": "NJDPA",
+      "short": "NJDPA",
+      "full": "New Jersey Data Privacy Act",
+      "year": "2025",
+      "category": "state-comprehensive",
+      "hint": "新泽西综合法，含 UOOM 与敏感数据 opt-in",
+      "citedBy": "NJ AG"
+    },
+    {
+      "code": "BIPA",
+      "short": "IL BIPA",
+      "full": "Illinois Biometric Information Privacy Act",
+      "year": "2008",
+      "category": "state-sector",
+      "hint": "生物识别信息 opt-in 同意与私人诉权，天价集体诉讼多发",
+      "citedBy": "IL State Courts"
+    },
+    {
+      "code": "MHMDA",
+      "short": "WA MHMDA",
+      "full": "Washington My Health My Data Act",
+      "year": "2024",
+      "category": "state-sector",
+      "hint": "覆盖非 HIPAA 健康数据的综合规则，含私人诉权",
+      "citedBy": "WA AG"
+    },
+    {
+      "code": "SHIELD",
+      "short": "NY SHIELD",
+      "full": "NY Stop Hacks and Improve Electronic Data Security Act",
+      "year": "2019",
+      "category": "state-sector",
+      "hint": "纽约州安全事件通报与合理安全措施要求",
+      "citedBy": "NY AG"
+    },
+    {
+      "code": "CA_AB1008",
+      "short": "CA AB 1008",
+      "full": "California AI/PI Amendment (AB 1008 / SB 1223)",
+      "year": "2024",
+      "category": "state-sector",
+      "hint": "生成式 AI 输出中的个人信息、神经数据被纳入 CCPA 敏感 PI",
+      "citedBy": "CPPA"
+    },
+    {
+      "code": "FTC_ACT_5",
+      "short": "FTC §5",
+      "full": "FTC Act §5 – Unfair or Deceptive Acts",
+      "year": "1914",
+      "category": "agency",
+      "hint": "FTC 隐私执法的兜底权力，含最终 Order 与 Health Breach Notification Rule",
+      "citedBy": "FTC"
+    },
+    {
+      "code": "SEC_SP",
+      "short": "SEC Reg S-P",
+      "full": "SEC Regulation S-P (2024 Amendments)",
+      "year": "2000/2024",
+      "category": "agency",
+      "hint": "券商/投顾/投资公司客户信息的安全与泄露通报（30 天）",
+      "citedBy": "SEC"
+    },
+    {
+      "code": "PCI_DSS",
+      "short": "PCI DSS 4.0",
+      "full": "Payment Card Industry Data Security Standard v4.0",
+      "year": "2024",
+      "category": "agency",
+      "hint": "支付卡数据处理的行业强制标准，Service Provider 合同要素",
+      "citedBy": "PCI SSC"
+    },
+    {
+      "code": "NIST_PF",
+      "short": "NIST PF",
+      "full": "NIST Privacy Framework 1.0",
+      "year": "2020",
+      "category": "agency",
+      "hint": "自愿性隐私管理框架，常作为 DPA 附件的技术措施基线",
+      "citedBy": "NIST"
+    },
+    {
+      "code": "NIST_800_53",
+      "short": "NIST 800-53",
+      "full": "NIST SP 800-53 Rev. 5 Security & Privacy Controls",
+      "year": "2020",
+      "category": "agency",
+      "hint": "联邦与承包商信息系统的安全/隐私控制目录",
+      "citedBy": "NIST"
+    }
+  ],
+  "usPresets": [
+    {
+      "code": "us.baseline",
+      "label": "综合基线",
+      "hint": "州综合法主流版本 + FTC §5",
+      "frameworks": [
+        "CCPA_CPRA",
+        "VCDPA",
+        "CPA",
+        "CTDPA",
+        "TDPSA",
+        "FTC_ACT_5"
+      ]
+    },
+    {
+      "code": "us.health",
+      "label": "健康数据（HIPAA + MHMDA）",
+      "hint": "PHI + 非 HIPAA 健康数据",
+      "frameworks": [
+        "HIPAA",
+        "HITECH",
+        "MHMDA",
+        "FTC_ACT_5"
+      ]
+    },
+    {
+      "code": "us.financial",
+      "label": "金融数据",
+      "hint": "GLBA + SEC + PCI DSS",
+      "frameworks": [
+        "GLBA",
+        "SEC_SP",
+        "PCI_DSS"
+      ]
+    },
+    {
+      "code": "us.bulk_transfer",
+      "label": "跨境批量数据传输（受关注国家）",
+      "hint": "EO 14117 + CLOUD Act + FISA 702",
+      "frameworks": [
+        "EO_14117",
+        "CLOUD_ACT",
+        "FISA_702",
+        "EAR"
+      ]
+    },
+    {
+      "code": "us.children",
+      "label": "儿童与教育",
+      "hint": "COPPA + FERPA + BIPA（生物识别）",
+      "frameworks": [
+        "COPPA",
+        "FERPA",
+        "BIPA"
+      ]
+    },
+    {
+      "code": "us.ai",
+      "label": "AI 与算法",
+      "hint": "CCPA/CPRA + CA AB 1008 + FTC §5",
+      "frameworks": [
+        "CCPA_CPRA",
+        "CA_AB1008",
+        "FTC_ACT_5",
+        "NIST_PF"
+      ]
+    },
+    {
+      "code": "us.security",
+      "label": "安全事件通报",
+      "hint": "州综合 + SHIELD + SEC + 联邦",
+      "frameworks": [
+        "CCPA_CPRA",
+        "SHIELD",
+        "SEC_SP",
+        "HITECH",
+        "NIST_800_53"
+      ]
+    }
+  ],
+  "controlPoints": [
+    {
+      "regulator": "CAC",
+      "label": "网信办 · 个信与数据",
+      "hint": "《个信法》主管部门，App / 网站 / 平台合规主战场",
+      "points": [
+        {
+          "id": "cac.privacy_policy",
+          "title": "隐私政策缺失或晦涩不清",
+          "desc": "未在显著位置展示隐私政策，或条款表述模糊、变更未告知；缺少处理者信息、目的、方式、类别、期限、权利行使方式。",
+          "basis": "PIPL §17 · §44；GB/T 42574-2023",
+          "precedent": "网信办 2022—2024 年多批次《APP 违法违规收集使用个人信息情况通报》",
+          "severity": "high"
+        },
+        {
+          "id": "cac.consent_missing",
+          "title": "未经同意收集个人信息",
+          "desc": "未取得个人同意即开始收集，或以默认勾选、捆绑授权等方式获取同意。",
+          "basis": "PIPL §13 · §14",
+          "precedent": "滴滴出行案（2022，网信办 80.26 亿元行政处罚）",
+          "severity": "high"
+        },
+        {
+          "id": "cac.necessity",
+          "title": "违反必要原则 · 超范围收集",
+          "desc": "收集的个人信息超出实现产品或服务功能所必需的最小范围，或与业务功能无直接关联。",
+          "basis": "PIPL §6；GB/T 41391-2022 App 收集个人信息基本要求",
+          "precedent": "知网案（2023，网信办 5000 万元行政处罚）",
+          "severity": "high"
+        },
+        {
+          "id": "cac.forced_auth",
+          "title": "强制授权 · 非必要不使用",
+          "desc": "拒绝授权非必要个人信息即无法使用基本功能；频繁弹窗索权、诱导授权。",
+          "basis": "PIPL §16",
+          "precedent": "工信部 / 网信办联合季度 App 违规通报",
+          "severity": "high"
+        },
+        {
+          "id": "cac.sdk_share",
+          "title": "第三方 SDK 违规共享",
+          "desc": "接入的第三方 SDK 收集范围、目的、方式未在隐私政策中列明；未与第三方签订数据处理协议。",
+          "basis": "PIPL §23；PIPL §21",
+          "precedent": "工信部 SDK 专项治理通报（2021—2024 多批）",
+          "severity": "high"
+        },
+        {
+          "id": "cac.deletion",
+          "title": "未提供便捷注销 / 删除路径",
+          "desc": "账户注销入口深、路径长，或注销后仍保留个人信息；未响应删除请求。",
+          "basis": "PIPL §47；GB/T 35273 §8.5",
+          "precedent": "网信办账号注销专项治理（2022 年）",
+          "severity": "medium"
+        },
+        {
+          "id": "cac.minors",
+          "title": "未成年人信息未获监护人同意",
+          "desc": "处理不满十四周岁未成年人个人信息未取得父母 / 监护人同意；无专门未成年人保护规则。",
+          "basis": "PIPL §31；《未成年人网络保护条例》",
+          "precedent": "多起儿童 App 违规通报（网信办 · 全国扫黄打非办联合行动）",
+          "severity": "high"
+        },
+        {
+          "id": "cac.sensitive_pi_consent",
+          "title": "敏感个人信息缺少单独同意",
+          "desc": "处理生物识别、宗教信仰、医疗健康、金融账户、行踪轨迹等敏感 PI 未取得单独同意，且未告知必要性与影响。",
+          "basis": "PIPL §29 · §30；GB/T 45574-2025",
+          "precedent": "人脸识别第一案（郭兵 v 杭州野生动物世界，2020 民事）；多起小区人脸门禁通报",
+          "severity": "high"
+        },
+        {
+          "id": "cac.cross_border",
+          "title": "数据出境未走合法路径",
+          "desc": "个人信息出境未通过安全评估 / 未订立并备案标准合同 / 未取得个人信息保护认证；重要数据未申报。",
+          "basis": "PIPL §38—§40；《数据出境安全评估办法》《标准合同办法》",
+          "precedent": "滴滴出行跨境风险（2022）；多家跨国企业 SCC 备案专项",
+          "severity": "high"
+        },
+        {
+          "id": "cac.breach_report",
+          "title": "数据泄露未及时报告",
+          "desc": "发生个人信息泄露、篡改、丢失时未立即采取补救措施，未按规定通知监管部门与受影响个人。",
+          "basis": "PIPL §57",
+          "precedent": "蔚来 227GB 用户数据泄露事件（2022）；某快递公司 4 亿用户数据泄露约谈",
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "regulator": "MPS",
+      "label": "公安 · 网络安全",
+      "hint": "《网络安全法》主管部门，等保与网络运行安全",
+      "points": [
+        {
+          "id": "mps.mlps",
+          "title": "关键系统等保未定级 / 备案 / 测评",
+          "desc": "关键信息基础设施及重要业务系统未按等保 2.0 定级、备案并开展等级测评；未落实第三级及以上安全要求。",
+          "basis": "CSL §21；GB/T 22239-2019；GB/T 22240-2020",
+          "precedent": "全国各地公安网安部门等保未定级行政处罚（多起，年均数百起）",
+          "severity": "high"
+        },
+        {
+          "id": "mps.log_retention",
+          "title": "网络日志留存不满 6 个月",
+          "desc": "网络运行日志、安全事件日志、访问日志未按规定留存至少 6 个月；日志被篡改或删除。",
+          "basis": "CSL §21",
+          "precedent": "各地公安网安处以警告 / 罚款（论坛、直播、社区多起）",
+          "severity": "medium"
+        },
+        {
+          "id": "mps.real_name",
+          "title": "未落实网络实名制",
+          "desc": "为用户提供发布信息、即时通讯、直播、跟帖等服务时未要求提供真实身份信息。",
+          "basis": "CSL §24",
+          "precedent": "多家论坛 / 直播平台被约谈及处罚",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "regulator": "MIIT",
+      "label": "工信 · App 治理",
+      "hint": "《App 违法违规收集使用个人信息认定方法》与季度通报",
+      "points": [
+        {
+          "id": "miit.auto_start",
+          "title": "App 频繁自启动 · 关联启动",
+          "desc": "App 在后台被频繁唤起，或通过 SDK 联动启动其他 App；未向用户明示与提供关闭入口。",
+          "basis": "工信部信管函〔2020〕164 号；工信部信管函〔2021〕461 号",
+          "precedent": "工信部季度 App 通报（2021—2024 每季度公开）",
+          "severity": "medium"
+        },
+        {
+          "id": "miit.bg_sensitive",
+          "title": "后台读取相册 / 位置等敏感权限",
+          "desc": "App 在后台或用户不知情时读取相册、通讯录、位置、麦克风等敏感权限。",
+          "basis": "GB/T 41391-2022；工信部信管函〔2019〕191 号",
+          "precedent": "多批 App 违规通报（工信部 · 各地通管局）",
+          "severity": "high"
+        },
+        {
+          "id": "miit.sdk_undisclosed",
+          "title": "SDK 未告知即调用",
+          "desc": "接入的第三方 SDK 及其收集范围未在隐私政策中列明；SDK 版本升级新增收集未同步告知。",
+          "basis": "PIPL §23；工信部 SDK 专项治理要求",
+          "precedent": "工信部 SDK 专项通报（2021—2024）",
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "regulator": "SAMR",
+      "label": "市场监管 · 反不正当竞争",
+      "hint": "算法歧视、大数据杀熟等消费者权益",
+      "points": [
+        {
+          "id": "samr.price_discrimination",
+          "title": "差异化定价 · 大数据杀熟",
+          "desc": "基于用户画像对同一商品 / 服务向不同消费者显示差异价格，未提供不针对个人特征的选项。",
+          "basis": "《电子商务法》§18；《反不正当竞争法》；《算法推荐规定》§21",
+          "precedent": "携程 / 美团 / 飞猪等被市场监管总局约谈及处罚",
+          "severity": "high"
+        },
+        {
+          "id": "samr.algo_discrimination",
+          "title": "算法歧视消费者",
+          "desc": "利用算法在交易条件、订单响应、搜索结果排序上对特定消费者群体设置歧视性规则。",
+          "basis": "《算法推荐规定》§21；《反不正当竞争法》",
+          "precedent": "多起互联网平台被约谈及要求整改",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "regulator": "JOINT",
+      "label": "多部门联合 · 新兴领域",
+      "hint": "生成式 AI · 深度合成 · 汽车数据等专项",
+      "points": [
+        {
+          "id": "joint.genai_filing",
+          "title": "生成式 AI 服务未做算法备案",
+          "desc": "面向公众提供生成式 AI 服务未在网信办完成算法备案；未落实训练数据合法性、内容标识、安全评估等义务。",
+          "basis": "《生成式 AI 服务管理暂行办法》§17 · §7 · §12",
+          "precedent": "网信办首批 / 后续多批算法备案清单公开；未备案服务被下架",
+          "severity": "high"
+        },
+        {
+          "id": "joint.deep_synthesis_mark",
+          "title": "深度合成内容未做显著标识",
+          "desc": "对深度合成生成或编辑的信息内容未在合理位置、区域进行显著标识，或未添加不影响用户使用的隐式标识。",
+          "basis": "《互联网信息服务深度合成管理规定》§16 · §17",
+          "precedent": "多家平台被约谈；抖音等已落实水印与二维码标识",
+          "severity": "medium"
+        },
+        {
+          "id": "joint.vehicle_data",
+          "title": "汽车数据违规境内存储 / 出境",
+          "desc": "车联网、辅助驾驶采集的个人信息与重要数据未在境内存储，或未按规定进行出境安全评估。",
+          "basis": "《汽车数据安全若干规定》；GB/T 41871-2022",
+          "precedent": "特斯拉境内数据中心整改；多家新势力车企数据合规专项",
+          "severity": "high"
+        },
+        {
+          "id": "joint.critical_data",
+          "title": "重要数据未落实分类分级",
+          "desc": "未识别、目录化重要数据；未按 GB/T 43697 建立分类分级管理制度与保护措施。",
+          "basis": "DSL §21；《网络数据安全管理条例》§34；GB/T 43697-2024",
+          "precedent": "多地网信办数据安全专项检查中被要求整改",
+          "severity": "medium"
+        }
+      ]
+    }
+  ],
+  "controlPresets": [
+    {
+      "code": "high_risk",
+      "label": "全选高危",
+      "hint": "所有 severity=high 的管控点",
+      "points": [
+        "cac.privacy_policy",
+        "cac.consent_missing",
+        "cac.necessity",
+        "cac.forced_auth",
+        "cac.sdk_share",
+        "cac.minors",
+        "cac.sensitive_pi_consent",
+        "cac.cross_border",
+        "cac.breach_report",
+        "mps.mlps",
+        "miit.bg_sensitive",
+        "miit.sdk_undisclosed",
+        "samr.price_discrimination",
+        "joint.genai_filing",
+        "joint.vehicle_data"
+      ]
+    },
+    {
+      "code": "app_governance",
+      "label": "App 治理专项",
+      "hint": "网信办 + 工信部 App 通报高频项",
+      "points": [
+        "cac.privacy_policy",
+        "cac.consent_missing",
+        "cac.necessity",
+        "cac.forced_auth",
+        "cac.sdk_share",
+        "cac.deletion",
+        "miit.auto_start",
+        "miit.bg_sensitive",
+        "miit.sdk_undisclosed"
+      ]
+    },
+    {
+      "code": "cross_border_focus",
+      "label": "跨境合规聚焦",
+      "hint": "出境路径 + 重要数据 + 泄露报告",
+      "points": [
+        "cac.cross_border",
+        "cac.breach_report",
+        "joint.critical_data",
+        "joint.vehicle_data"
+      ]
+    },
+    {
+      "code": "sensitive_pi_focus",
+      "label": "敏感 PI 聚焦",
+      "hint": "生物识别 / 未成年人 / 医疗健康",
+      "points": [
+        "cac.sensitive_pi_consent",
+        "cac.minors",
+        "miit.bg_sensitive"
+      ]
+    },
+    {
+      "code": "genai_focus",
+      "label": "生成式 AI 聚焦",
+      "hint": "算法备案 + 内容标识",
+      "points": [
+        "joint.genai_filing",
+        "joint.deep_synthesis_mark"
+      ]
+    }
+  ],
+  "partyRoles": {
+    "controller_processor": [
+      {
+        "code": "controller",
+        "label": "Controller",
+        "zh": "数据控制者",
+        "hint": "确定处理目的与方式，对数据主体承担第一位责任",
+        "stance": "关注处理者是否严格执行指令、审计权与安全义务是否充分、终止后删除返还、责任兜底与追偿。"
+      },
+      {
+        "code": "processor",
+        "label": "Processor",
+        "zh": "数据处理者",
+        "hint": "受控制者委托处理，不得超范围使用",
+        "stance": "关注委托边界是否清晰、成本谁承担、无限连带 / 单方指令变更 / 无上限赔偿等对处理者不利条款。"
+      }
+    ],
+    "controller_controller": [
+      {
+        "code": "controller_provider",
+        "label": "Controller (Data Provider)",
+        "zh": "数据提供方 · 独立控制者",
+        "hint": "向对方提供 / 共享个人信息的一方",
+        "stance": "关注 PIPL §23 单独同意与告知的举证责任、接收方后续使用的限制、下游滥用的追偿。"
+      },
+      {
+        "code": "controller_recipient",
+        "label": "Controller (Data Recipient)",
+        "zh": "数据接收方 · 独立控制者",
+        "hint": "接收并作为独立控制者处理个人信息的一方",
+        "stance": "关注接收数据的合法性基础是否清洁、告知瑕疵的追偿、被要求删除时的成本承担。"
+      }
+    ],
+    "joint_controller": [
+      {
+        "code": "joint_controller_a",
+        "label": "Joint Controller A",
+        "zh": "共同控制者 A",
+        "hint": "与对方共同决定处理目的与方式",
+        "stance": "关注对外单一联系点归属、连带责任推定的抗辩空间（PIPL §20 第二款）、内部分工与追偿。"
+      },
+      {
+        "code": "joint_controller_b",
+        "label": "Joint Controller B",
+        "zh": "共同控制者 B",
+        "hint": "与对方共同决定处理目的与方式",
+        "stance": "关注 PIPIA 分工与结论披露、对方违规时的隔离条款、对外承担赔偿后的内部追偿。"
+      }
+    ],
+    "sub_processor": [
+      {
+        "code": "main_processor",
+        "label": "Main Processor",
+        "zh": "主处理者",
+        "hint": "已受控制者委托，再向次级处理者转委托",
+        "stance": "关注控制者书面授权是否具备、次级处理者是否 back-to-back 承担同等义务、审计权是否延伸。"
+      },
+      {
+        "code": "sub_processor_party",
+        "label": "Sub-processor",
+        "zh": "次级处理者",
+        "hint": "接受主处理者转委托的一方",
+        "stance": "关注主处理者是否有转委托权、报酬与责任是否匹配、控制者直接跳过主处理者行使权利的边界。"
+      }
+    ],
+    "cross_border": [
+      {
+        "code": "data_exporter",
+        "label": "Data Exporter",
+        "zh": "数据出境方 · 境内",
+        "hint": "境内一方，向境外传输数据",
+        "stance": "关注是否需申报安评（CIIO / 重要数据 / 100 万 / 10 万敏感 PI）、SCC 备案义务、境外接收方违规的追偿路径。"
+      },
+      {
+        "code": "data_importer",
+        "label": "Data Importer",
+        "zh": "数据接收方 · 境外",
+        "hint": "境外一方，接收境内传输的数据",
+        "stance": "关注承接的义务清单是否可执行（境内司法救济、监管配合）、再转移限制、政府调取请求条款。"
+      }
+    ]
+  }
+}

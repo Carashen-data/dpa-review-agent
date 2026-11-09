@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# next.js build output
+.next/
+out/
+build/
+
+# local environment / secrets — NEVER commit real credentials
+.env
+.env.*
+!.env.example
+
+# logs & debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# editors / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# deployment
+.vercel
+.netlify

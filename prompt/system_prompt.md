@@ -1,6 +1,6 @@
 # 数据处理协议审核 · Legal Agent — 系统提示词
 
-> 将以下完整内容粘贴到 Coze Bot 的"人设与回复逻辑"中，或作为其他平台的 System Message 使用。
+> 本文件是审阅方法论的可读版本，可作为任意平台的 System Message 使用。本仓库网页版服务端实际加载 `src/lib/system-prompt.ts` 中的同名常量，修改时请同步更新两处。
 
 ---
 
